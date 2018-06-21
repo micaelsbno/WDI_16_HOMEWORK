@@ -12,9 +12,8 @@ var recipe = {
 console.log(recipe.title);
 console.log('Serves: ' + recipe.serves);
 console.log('Ingredients:');
-console.log(recipe.ingredients[0]);
-console.log(recipe.ingredients[1]);
-console.log(recipe.ingredients[2]);
+console.log(recipe.ingredients.join('\n'));
+
 
 
 
@@ -22,36 +21,34 @@ console.log(recipe.ingredients[2]);
 // THE READING LIST
 //
 
-var book1 = {
+var books = [{
   title: 'Lord of the Rings 1',
   author: 'J.R.R Tolkien',
-  read: true,
-}
-
-var book2 = {
+  alreadyRead: true,
+},
+{
   title: 'Lord of the Rings 2',
   author: 'J.R.R Tolkien 2',
-  read: false,
-}
-
-var book3 = {
+  alreadyRead: false,
+},
+{
   title: 'Lord of the Rings 3',
   author: 'J.R.R Tolkien again',
-  read: false,
-}
-
-var readingList = [book1, book2, book3]
+  alreadyRead: false,
+}];
 
 
-for (var i = 0; i < readingList.length; i++){
-  console.log(readingList[i].title + ' by ' + readingList[i].author)
-}
+//for (var i = 0; i < books.length; i++){
+//  var book = books[i];
+//  console.log(book.title + ' by ' + book.author)
+//}
 
-for (var i = 0; i < readingList.length; i++){
-  if (readingList[i].read === true) {
-  console.log('You already read ' + readingList[i].title + ' by ' + readingList[i].author)
+for (var i = 0; i < books.length; i++){
+  var book = books[i];
+  if (book.alreadyRead) {
+  console.log('You already read ' + book.title + ' by ' + book.author)
   } else {
-  console.log('You still need to read ' + readingList[i].title + ' by ' + readingList[i].author)
+  console.log('You still need to read ' + book.title + ' by ' + book.author)
   }
 }
 
@@ -63,13 +60,10 @@ for (var i = 0; i < readingList.length; i++){
 var favoriteMovie = {
   title: 'The Holy Mountain',
   duration: 115,
-  stars: ['Alejandro Jodorowsky', ' Horacio Salinas', ' Ramona Saunders', ' Juan Ferrara']
+  stars: ['Alejandro Jodorowsky', ' Horacio Salinas', ' Ramona Saunders', ' Juan Ferrara'],
+
 }
 
-var message = favoriteMovie.title + ' lasts ' + favoriteMovie.duration + ' minutes. Stars: ' + favoriteMovie.stars;
-  console.log(message)
-
-var firstParagraph = document.querySelectorAll('p');
-var newParagraph = document.createElement('p');
-newParagraph.textContent = message;
-firstParagraph[0].appendChild(newParagraph);
+var movieInfo = function(movie) {
+  console.log(movie.title + ' lasts for ' + movie.duration + ' minutes, stars ' + movie.stars.join(',') ) 
+};
