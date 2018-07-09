@@ -11,12 +11,12 @@ function changeStyleToRed(accountNumber){
     var account = '.checking'
   }
   document.querySelectorAll('main>*:first-child, main>*:last-child')[accountNumber].style = "background-color: darkred";
-    document.querySelector(account + ' ' + 'h3').style = 'color: white';
-    document.querySelector(account + ' ' + 'small').style = 'color: white';
-    document.querySelector(account + ' ' + 'h2').style = 'color: white';
-    document.querySelector(account + ' ' + 'span').style = 'color: white';
-    document.querySelectorAll(account + ' ' + 'button')[0].className = 'red-button';
-    document.querySelectorAll(account + ' ' + 'button')[1].className = 'red-button';
+  document.querySelector(account + ' ' + 'h3').style = 'color: white';
+  document.querySelector(account + ' ' + 'small').style = 'color: white';
+  document.querySelector(account + ' ' + 'h2').style = 'color: white';
+  document.querySelector(account + ' ' + 'span').style = 'color: white';
+  document.querySelectorAll(account + ' ' + 'button')[0].className = 'red-button';
+  document.querySelectorAll(account + ' ' + 'button')[1].className = 'red-button';
 }
 
 function changeStyleToNormal(accountNumber){

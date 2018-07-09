@@ -46,9 +46,9 @@ var books = [{
 for (var i = 0; i < books.length; i++){
   var book = books[i];
   if (book.alreadyRead) {
-  console.log('You already read ' + book.title + ' by ' + book.author)
+    console.log('You already read ' + book.title + ' by ' + book.author)
   } else {
-  console.log('You still need to read ' + book.title + ' by ' + book.author)
+    console.log('You still need to read ' + book.title + ' by ' + book.author)
   }
 }
 
