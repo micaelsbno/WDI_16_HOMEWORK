@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+  <title><%= @stock.company_name %></title>
+</head>
+<body>
+  <main>
+    <h1><%= @stock.company_name %></h1>
+    <ul>
+      <li>Realtime price: $<%= @stock.iex_realtime_price %></li>
+      <li>High: <%= @stock.high %></li>
+      <li>Low: <%= @stock.low %></li>
+      <p>Last time checked  </p>
+      <%= Time.now %>
+    </ul>
+  </main>
+  <script>
+    function reloader(){
+      location.reload()
+    }
+    setInterval(reloader, 5000)
+  </script>
+</body>
+</html>

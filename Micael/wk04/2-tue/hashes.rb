@@ -60,15 +60,15 @@ users["Erik"][:favorite_numbers].min
 # How would you return an array of Anil's favorite numbers that are also even?
 users["Anil"][:favorite_numbers].select {|num| num.even?}
 # How would you return an array of the favorite numbers common to all users?
-common_array = []
-users.each do |user,value|
-  common_array.push(value[:favorite_numbers])
-end
-common_array = common_array.flatten
-common_numbers = common_array.detect{|n| common_array.count(n) >= users.keys.length}
-print common_numbers
+
+result_arr = users.values.map do |hash|
+  hash[:favorite_numbers]
+end.flatten
+
+result_arr.select {|number| result_arr.count(number) >= users.keys.length}.uniq
 
 # How would you return an array containing all users' favorite numbers, sorted, and excluding duplicates?
-all_time_favorites = common_array.sort.uniq
+result_arr.sort.uniq
+
 
 binding.pry
