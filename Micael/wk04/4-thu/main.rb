@@ -7,9 +7,6 @@ get '/' do
 end
 
 get '/:number' do
-  # matches "GET /hello/foo" and "GET /hello/bar"
-  # params[:name] is 'foo' or 'bar'
   @number = params[:number]
-  @potions = "potions"
   erb(:index)
 end
