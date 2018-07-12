@@ -7,10 +7,14 @@
   <title><%= @number %> Pink Potions</title>
 </head>
 <body>
-  
-  <div class="bottles"></div>
-  <p><%= @number %> Pink potions on the wall <a href="<%= @number.to_i - 1%>"> Drink one</a>
-  </p>
-  <script src="app.js"></script>  
+  <% if @number.to_i > 0 %>
+    <div class="bottles"></div>
+    <p><%= @number %> Pink potions on the wall <a href="<%= @number.to_i - 1%>"> Drink one</a>
+    </p>
+    <script src="app.js"></script>
+  <% else %>
+    <p>No more Pink potions on the wall <a href="/"> Go buy some more!</a>
+    </p>
+  <% end %>
 </body>
 </html>
