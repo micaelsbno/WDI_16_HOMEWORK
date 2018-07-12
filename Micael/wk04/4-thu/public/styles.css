@@ -1,0 +1,25 @@
+body {
+  background-color: mistyrose;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-flow: column;
+}
+
+p {
+  font-size: 3em;
+  font-family: 'Gaegu', cursive;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+div {
+  text-align: center;
+}
+
+img {
+  height: 60px;
+  width: 60px;
+}

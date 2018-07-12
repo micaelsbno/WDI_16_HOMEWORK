@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="styles.css">
+   <% if @stock %>
   <title><%= @stock.company_name %></title>
 </head>
 <body>
   <main>
+   
     <h1><%= @stock.company_name %></h1>
     <ul>
       <li>Realtime price: $<%= @stock.iex_realtime_price %></li>
       <li>High: <%= @stock.high %></li>
       <li>Low: <%= @stock.low %></li>
       <p>Last time checked  </p>
+      <p> <%= "#{@about}"  %> </p>
       <%= Time.now %>
     </ul>
   </main>
@@ -22,5 +25,12 @@
     }
     setInterval(reloader, 5000)
   </script>
+  <% else %>
+  <title> 404 not found</title>
+  <h2>
+    Stock not found
+  </h2>
+  <% end %>
+</body>
 </body>
 </html>
