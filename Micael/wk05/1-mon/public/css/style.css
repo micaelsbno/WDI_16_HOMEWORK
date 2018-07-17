@@ -44,6 +44,10 @@ header {
   height: 60px;
 }
 
+.home__ul {
+  padding: 0px;
+}
+
 main {
   width: 100%;
   display: flex;
@@ -308,7 +312,16 @@ input:focus {
   .search{
     width: auto;
   }
+  
+  .logo-home {
+  height: 90px;
+  align-self: center;
+  }
 
+  .home__ul {
+    flex-flow: column;
+    padding: 0px;
+  }
 
 
 
