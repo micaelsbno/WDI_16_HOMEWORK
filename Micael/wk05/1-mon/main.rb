@@ -2,7 +2,6 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'HTTParty'
 require 'pry'
-require 'FileUtils'
 
 get '/' do
   erb(:index)

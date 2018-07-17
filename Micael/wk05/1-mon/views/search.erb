@@ -1,22 +1,3 @@
-<header> 
-    <a href="/"><img src="img/fd_logo.png" alt="" class="logo"></a>
-    <div class="menu-icon">
-      <i class="fas fa-ellipsis-v fa-lg menu-icon"></i>
-    </div>
-    <div class="inline-menu">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li>About</li>
-        <li class="search">
-        <form action="/search" method="get">            
-          <input name="movie_title" type="text" placeholder="Search for a movie">
-          <button><i class="fas fa-search"></i></button>
-        </form>    
-        </li>
-      </ul>
-    </div>
-  </header>
-
 <h2 class="search__header">Your searched for: <%= @search_title %></h2>
   <div class="search__result">
     <% @search['Search'].each do | movie | %>
