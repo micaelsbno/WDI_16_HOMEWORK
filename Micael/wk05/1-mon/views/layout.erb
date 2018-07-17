@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Movie Searcher</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel='stylesheet' href='/css/style.css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="dropdown-menu-hidden">
+      <ul>
+        <i class="fas fa-times 2x"></i>
+
+        <li>Home</li>
+        <li>About</li>
+        <li class="search">
+          <form action="/movie" method="get"><input name="movie_title" type="text" placeholder="Search for a movie"><button><i class="fas fa-search"></i></button>
+          </form>    
+        </li>
+      </ul>
+    </div>
+    <%= yield %>
+    <script src="js/app.js"></script>
+  </body> 
+</html>

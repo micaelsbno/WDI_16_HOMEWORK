@@ -1,0 +1,72 @@
+
+<body>
+  <header> 
+    <a href="/"><img src="img/fd_logo.png" alt="" class="logo"></a>
+    <div class="menu-icon">
+      <i class="fas fa-ellipsis-v fa-lg menu-icon"></i>
+    </div>
+    <div class="inline-menu">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li>About</li>
+        <li class="search">
+        <form action="/movie" method="get">            
+          <input name="movie_title" type="text" placeholder="Search for a movie">
+          <button><i class="fas fa-search"></i></button>
+        </form>    
+        </li>
+      </ul>
+    </div>
+  </header>
+  
+  <% if @movie['Response'] != 'False' %>
+    
+    <title><%= @movie['Title'] %></title>
+    <main>
+      <div class="hero-image"><img src='<%= @movie['Poster'] %>' alt=""></div>
+      <div class="titles">
+        <div class="title-column">
+          <h1 class="title-header"><%= @movie['Title'] %><span class="year"> (<%= @movie['Year'] %>)</span></h1>
+          <div>
+            <h3>Directed by <%= @movie['Director'] %></h3>
+            <div class="info-column">
+              <h3 class="year_desktop"><%= @movie['Year'] %></h3>
+              <h6><%= @movie['Genre'] %></h6>
+            </div>
+          </div>
+        </div>
+     
+        <div class="sinopsis">
+          <h2>Sinopsis</h2>
+          <p class="sinopsis__text"><%= @movie['Plot'] %></p>
+        </div>
+        <div class="main-score">
+          <p class="score__sub">Score</p>
+          <h4 class="score"><%= @movie['Metascore'] %></h4>
+
+        </div>
+      </div>
+    </main>
+
+        <% if @movie['Awards'] %>
+        <div class="styler"></div>
+
+        <div class="awards">
+          <h2 class="awards__header">Awards</h2>
+          <p class="awards"><%= @movie['Awards'] %></p>
+        </div>
+        <% end %>
+    
+  <% else %>
+    <h1>404</h1>
+    <h5>This movie probably doesn't exist</h5>
+    <form action="/movie" method="get">            
+          <input name="movie_title" type="text" placeholder="Search for a movie">
+          <button><i class="fas fa-search"></i></button>
+     </form> 
+
+  <% end %>
+
+  
+</body>
+</html>
