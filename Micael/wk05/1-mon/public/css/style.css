@@ -221,8 +221,58 @@ input:focus {
 }
 
 
+.search__header {
+  text-align: center;
+}
+
+.search__result {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search__image {
+  max-height: 50vw;
+  min-width: 30vw;
+}
+
+.search__item {
+  width: 50%;
+  text-align: center;
+}
+
+.error {
+  text-align: center;
+}
+
+.error form {
+  width: 200px;
+  margin: 0 auto;
+}
+
+
 @media (min-width: 960px) {
   
+  .search__result {
+    width: 960px;
+    margin: 0 auto;
+  }
+
+  .search__item {
+    width: 240px;
+
+  }
+
+  .search__image {
+    width: 240px;
+    height: 400px;
+    padding: 6px;
+    object-fit: cover;
+    max-height: 100%;
+    min-width: 0;
+  }
+
   .home-header {
     display: flex;
     justify-content: center;
