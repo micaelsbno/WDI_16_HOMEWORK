@@ -17,12 +17,27 @@ def prepare_sql(statement_name, sql, args)
 end
 
 get '/movie' do
-  movie_id = prepare_sql("find_movie", "SELECT imdbid FROM movies WHERE LOWER(title) = LOWER($1);", [params[:movie_title]])
+  movie_id = prepare_sql(
+    "find_movie",
+    "SELECT imdbid FROM movies WHERE LOWER(title) = LOWER($1);",
+    [params[:movie_title]]
+    )
   unless movie_id.ntuples > 0
-    @movie = HTTParty.get("http://www.omdbapi.com/?t=#{params[:movie_title].downcase}&apikey=2f6435d9")
-    prepare_sql("create_movie", "INSERT INTO movies (title, director, genre, plot, poster, awards, imdbid, metascore, year) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);", [@movie['Title'], @movie['Director'], @movie['Genre'], @movie['Plot'], @movie['Poster'], @movie['Awards'], @movie['imdbID'] , @movie['Metascore'].to_i, @movie['Year'].to_i])
+    @movie = HTTParty.get(
+      "http://www.omdbapi.com/?t=#{params[:movie_title].downcase}&apikey=2f6435d9"
+      )
+    prepare_sql(
+      "create_movie", 
+      "INSERT INTO movies
+      (title, director, genre, plot, poster, awards, imdbid, metascore, year)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);",
+      [@movie['Title'], @movie['Director'], @movie['Genre'], @movie['Plot'], @movie['Poster'], @movie['Awards'], @movie['imdbID'] , @movie['Metascore'].to_i, @movie['Year'].to_i]
+      )
   end
-  movie_id = prepare_sql("movie_id", "SELECT imdbid from movies where LOWER(title) = LOWER($1);", [params[:movie_title]])[0]['imdbid']
+  movie_id = prepare_sql(
+    "movie_id",
+    "SELECT imdbid from movies where LOWER(title) = LOWER($1);",
+    [params[:movie_title]])[0]['imdbid']
   @movie = prepare_sql("movie", "SELECT * FROM movies where imdbid = $1;", [movie_id])[0]
   erb :movie
 end
