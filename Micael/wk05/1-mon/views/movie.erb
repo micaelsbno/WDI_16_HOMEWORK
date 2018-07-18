@@ -1,27 +1,27 @@
-<% if @movie['Response'] != 'False' %>
+<% unless @movie['Response'] == 'False' %>
   
-  <title><%= @movie['Title'] %></title>
+  <title><%= @movie['title'] %></title>
   <main>
-    <div class="hero-image"><img src='<%= @movie['Poster'] %>' alt=""></div>
+    <div class="hero-image"><img src='<%= @movie['poster'] %>' alt=""></div>
     <div class="titles">
       <div class="title-column">
-        <h1 class="title-header"><%= @movie['Title'] %><span class="year"> (<%= @movie['Year'] %>)</span></h1>
+        <h1 class="title-header"><%= @movie['title'] %><span class="year"> (<%= @movie['year'] %>)</span></h1>
         <div>
-          <h3>Directed by <%= @movie['Director'] %></h3>
+          <h3>Directed by <%= @movie['director'] %></h3>
           <div class="info-column">
-            <h3 class="year_desktop"><%= @movie['Year'] %></h3>
-            <h6><%= @movie['Genre'] %></h6>
+            <h3 class="year_desktop"><%= @movie['year'] %></h3>
+            <h6><%= @movie['genre'] %></h6>
           </div>
         </div>
       </div>
    
       <div class="sinopsis">
         <h2>Sinopsis</h2>
-        <p class="sinopsis__text"><%= @movie['Plot'] %></p>
+        <p class="sinopsis__text"><%= @movie['plot'] %></p>
       </div>
       <div class="main-score">
         <p class="score__sub">Score</p>
-        <h4 class="score"><%= @movie['Metascore'] %></h4>
+        <h4 class="score"><%= @movie['metascore'] %></h4>
 
       </div>
     </div>
@@ -32,7 +32,7 @@
 
       <div class="awards">
         <h2 class="awards__header">Awards</h2>
-        <p class="awards"><%= @movie['Awards'] %></p>
+        <p class="awards"><%= @movie['awards'] %></p>
       </div>
       <% end %>
   
@@ -41,8 +41,8 @@
     <h1>404</h1>
     <h5>This movie probably doesn't exist</h5>
     <form action="/search" method="get">            
-          <input name="movie_title" type="text" placeholder="Search for a movie">
-          <button><i class="fas fa-search"></i></button>
-     </form> 
+      <input name="movie_title" type="text" placeholder="Search for a movie">
+      <button><i class="fas fa-search"></i></button>
+    </form> 
   </div>
 <% end %>

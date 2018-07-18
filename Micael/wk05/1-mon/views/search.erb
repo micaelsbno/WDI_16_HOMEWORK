@@ -2,8 +2,8 @@
   <div class="search__result">
     <% @search['Search'].each do | movie | %>
       <div class="search__item">
-        <img src="<%= movie['Poster'] %>" class="search__image" alt="<%= movie['Title'] %>">
-        <a href="/movie?movie_title=<%= movie['Title'] %>" name="movie_title"><p class="search__text"><%= movie['Title'] %></p></a>
+        <a href="/movie?movie_title=<%= movie['Title'] %>" name="movie_title"><img src="<%= movie['Poster'] %>" class="search__image" alt="<%= movie['Title'] %>">
+        <p class="search__text"><%= movie['Title'] %></p></a>
       </div>
     <% end %>
   </div>
