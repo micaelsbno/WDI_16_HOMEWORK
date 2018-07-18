@@ -37,7 +37,8 @@ get '/movie' do
   movie_id = prepare_sql(
     "movie_id",
     "SELECT imdbid from movies where LOWER(title) = LOWER($1);",
-    [params[:movie_title]])[0]['imdbid']
+    [params[:movie_title]]
+    )[0]['imdbid']
   @movie = prepare_sql("movie", "SELECT * FROM movies where imdbid = $1;", [movie_id])[0]
   erb :movie
 end
