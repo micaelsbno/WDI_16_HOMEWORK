@@ -1,0 +1,14 @@
+<h1>Edit <%= @pokemon.name %></h1>
+<form action="/pokemons/<%= @pokemon.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <label for="">Name</label>
+  <input type="text" name="name" value="<%= @pokemon.name %>">
+  <label for="">image url</label>
+  <input type="text" name="image_url" value="<%= @pokemon.image_url %>">
+  <button>Post</button>
+</form>
+
+<form action="/pokemons/<%= @pokemon.id %>" method="post">
+<input type="hidden" name="_method" value="delete">  
+<button>Delete</button>
+</form>

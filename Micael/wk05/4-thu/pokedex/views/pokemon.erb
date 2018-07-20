@@ -1,0 +1,8 @@
+<h1><%= @pokemon.name %></h1> <a href="/pokemons/<%= @pokemon.id %>/edit"><p>Edit Pokemon</p></a>
+<img src="<%= @pokemon.image_url %>">
+<% @traits.each do | trait | %>
+<p><%= trait.name %>: <%= trait.description %></p>
+<% end %>
+
+<a href="/pokemons/trait/<%= @pokemon.id %>/add">Add Trait</a>
+<a href="/pokemons/trait/<%= @pokemon.id %>/edit"">Edit Traits</a>

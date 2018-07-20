@@ -1,0 +1,9 @@
+<h1>Add New Trait to <%= @pokemon.name %></h1>
+<form action="/pokemons/trait/<%= @pokemon.id %>" method="post">
+  <input type="hidden" name="pokemon_id" value="<%= @pokemon.id %>">
+  <label for="">Name</label>
+  <input type="text" name="name">
+  <label for="">Description</label>
+  <input type="text" name="description">
+  <button>Add</button>
+</form>

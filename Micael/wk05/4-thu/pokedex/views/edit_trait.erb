@@ -1,0 +1,22 @@
+<h1>Edit <%= @pokemon.name %></h1>
+
+<% @pokemon.traits.each do | trait | %> 
+
+<form action="/pokemons/trait/<%= trait.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <input type="hidden" name="pokemon_id" value="<%= trait.pokemon_id %>">
+  <label for="">Name</label>
+  <input type="text" name="name" value="<%= trait.name %>">
+  <label for="">Description</label>
+  <input type="text" name="description" value="<%= trait.description %>">
+  <button>Post</button>    
+</form>
+
+  
+<form action="/pokemons/trait/<%= trait.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">  
+  <button>Delete</button>
+
+</form>
+
+<% end %>
