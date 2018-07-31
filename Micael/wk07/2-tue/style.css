@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.search-item {
+  text-align: center;
+  height: 100%;
+  width: 24%;
+  margin-left: 5px;
+}
+
+.search-item__image {
+  height: 300px;
+  width: 100%;
+  background-clip: cover;
+  background-position: center;
+}
+
+.movie__image {
+  height: 460px;
+  width: 36%;
+  background-clip: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.movie__side {
+  width: 63%;
+  margin-left: 5px;
+}
