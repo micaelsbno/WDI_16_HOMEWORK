@@ -1,15 +1,9 @@
 var main = document.querySelector('main')
 
 function searchMovie(){
+  main.innerHTML = ''
   movie = document.getElementById('movie-input').value
-  microAjax({
-    url: 'https://omdbapi.com/?s=' + movie + '&apikey=8026d01b' ,
-    method: 'GET',
-    success: function(res) {
-      main.innerHTML = ''
-      res.Search.forEach(createMovie)
-    }
-  })
+  miniAjax.search(movie)
 }
 
 function createMovie(movie) {
@@ -30,14 +24,8 @@ button = document.getElementById('search')
 button.addEventListener('click', searchMovie)
 
 
-function getMovie(movie){
-  microAjax({
-    url: 'https://omdbapi.com/?t=' + movie + '&apikey=8026d01b' ,
-    method: 'GET',
-    success: function(res) {
-      showMovie(res)
-    }
-  })
+function getMovie(movie) {
+  miniAjax.getMovie(movie)
 }
 
 function showMovie(movie) {
