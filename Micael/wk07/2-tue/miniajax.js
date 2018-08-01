@@ -1,13 +1,14 @@
 (() => {
   miniAjax = {
     search: () => {
-      fetch('https://omdbapi.com/?s=' + movie + '&apikey=8026d01b'
+        fetch('https://omdbapi.com/?s=' + movie + '&apikey=8026d01b'
       ).then(
-      res => {
-        return res.json()
-      }).then(
-      response => {
-         response.Search.forEach(createSearch)
+        res => res.json()
+      ).then(
+        response => {
+        movies.innerHTML = ''
+        response.Search.forEach(createSearch)
+        showContent()
       })
     },
     getMovie: movie => {
@@ -17,7 +18,9 @@
           return res.json()
       }).then (
       response => {
+        movies.innerHTML = ''
         showMovie(response)
+        showContent()
       })
     }
   }

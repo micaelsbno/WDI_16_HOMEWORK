@@ -1,51 +1,52 @@
-var main = document.querySelector('main')
-var button = document.getElementById('search')
+var main = m$('main')
+var button = m$('#search')
+var movies = m$('.movies')
 
 function searchMovie(){
-  main.innerHTML = ''
-  movie = document.getElementById('movie-input').value
+  hideContent()
+  movie = m$('#movie-input').value
   miniAjax.search(movie)
 }
 
 function createSearch(movie) {
-  var link = document.createElement('a')
-  var div = document.createElement('div')
+  var link = m$Create('a')
+  var div = m$Create('div')
   div.className = 'search-item'
-  var div2 = document.createElement('div')
+  var div2 = m$Create('div')
   div2.style = 'background-image: url(' + movie.Poster + ')'
   div2.className = 'search-item__image'
-  var h4 = document.createElement('h4')
+  var h4 = m$Create('h4')
   h4.textContent = movie.Title
   div.appendChild(div2)
   div.appendChild(h4)
-  main.appendChild(div)
+  movies.appendChild(div)
 }
 
 function getMovie(movie) {
+  hideContent()
   miniAjax.getMovie(movie)
 }
 
 function showMovie(movie) {
-  main.innerHTML = ""
-  var div1 = document.createElement('div')
+  var div1 = m$Create('div')
   div1.style = 'background-image: url(' + movie.Poster + ')'
   div1.className = 'movie__image'
-  var div2 = document.createElement('div')
+  var div2 = m$Create('div')
   div2.className = 'movie__side'
-  var h1 = document.createElement('h1')
+  var h1 = m$Create('h1')
   h1.textContent = movie.Title
-  var p = document.createElement('p')
+  var p = m$Create('p')
   p.textContent = movie.Plot
-  var h3 = document.createElement('h3')
+  var h3 = m$Create('h3')
   h3.textContent = 'Score ' + movie.Metascore
-  main.appendChild(div1)
+  movies.appendChild(div1)
   div2.appendChild(h1)
   div2.appendChild(p)
   div2.appendChild(h3)
-  main.appendChild(div2)
+  movies.appendChild(div2)
 }
 
 button.addEventListener('click', searchMovie)
-main.addEventListener('click', event => {
+movies.addEventListener('click', event => {
   getMovie(event.target.parentNode.querySelector('h4').textContent)
 })
