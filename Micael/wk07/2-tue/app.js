@@ -1,4 +1,5 @@
 var main = document.querySelector('main')
+var button = document.getElementById('search')
 
 function searchMovie(){
   main.innerHTML = ''
@@ -6,7 +7,7 @@ function searchMovie(){
   miniAjax.search(movie)
 }
 
-function createMovie(movie) {
+function createSearch(movie) {
   var link = document.createElement('a')
   var div = document.createElement('div')
   div.className = 'search-item'
@@ -19,10 +20,6 @@ function createMovie(movie) {
   div.appendChild(h4)
   main.appendChild(div)
 }
-
-button = document.getElementById('search')
-button.addEventListener('click', searchMovie)
-
 
 function getMovie(movie) {
   miniAjax.getMovie(movie)
@@ -48,6 +45,7 @@ function showMovie(movie) {
   main.appendChild(div2)
 }
 
-main.addEventListener('click', function(event){
+button.addEventListener('click', searchMovie)
+main.addEventListener('click', event => {
   getMovie(event.target.parentNode.querySelector('h4').textContent)
 })
