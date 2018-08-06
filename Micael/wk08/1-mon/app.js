@@ -32,3 +32,26 @@ function changeGreen(target) {
 main.addEventListener('mouseover', () => {
   changeGreen(event.target)
 })
+
+
+function addMoviePoster() {
+  movie = document.querySelector('.movie-input').value
+  fetch('http://www.omdbapi.com/?t=' + movie + '&apikey=8026d01b')
+  .then( response => response.json() )
+  .then( response => {
+    addBackground(response)
+  });
+}
+
+function addBackground(json){
+  body = document.querySelector('body')
+  body.style = 'background-image: url(' + json['Poster'] + ')'
+}
+
+document.querySelector('.movie-input').addEventListener('keyup', () => {
+  if (event.key === 'Enter') {
+    addMoviePoster()
+  }
+})
+
+document.querySelector('.movie-button').addEventListener('click', addMoviePoster)
