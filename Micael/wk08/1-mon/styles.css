@@ -1,0 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
+.square {
+  float: left;
+  width: 20px;
+  height: 20px;
+}
