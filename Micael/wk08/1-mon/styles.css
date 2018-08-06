@@ -6,4 +6,6 @@
   float: left;
   width: 20px;
   height: 20px;
+  background-color: mistyrose;
+  border: solid 1px white; 
 }

@@ -12,3 +12,11 @@ document.querySelector('.brush').addEventListener('keyup', () => {
 })
 
 document.querySelector('button').addEventListener('click', setColor)
+
+function createSquares() {
+  for (i = 0; i < 1000; i++) {
+    var div = document.createElement('div')
+    div.className = 'square'
+    document.querySelector('main').appendChild(div)
+  }
+}
