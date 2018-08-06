@@ -5,6 +5,8 @@ function setColor(){
   return brushColor
 }
 
+main = document.querySelector('main')
+
 document.querySelector('.brush').addEventListener('keyup', () => {
   if (event.key === 'Enter') {
     setColor()
@@ -17,6 +19,16 @@ function createSquares() {
   for (i = 0; i < 1000; i++) {
     var div = document.createElement('div')
     div.className = 'square'
-    document.querySelector('main').appendChild(div)
+    main.appendChild(div)
   }
 }
+
+createSquares()
+
+function changeGreen(target) {
+  target.classList.add('green')
+}
+
+main.addEventListener('click', () => {
+  changeGreen(event.target)
+})
