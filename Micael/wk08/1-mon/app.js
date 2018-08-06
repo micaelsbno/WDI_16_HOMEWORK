@@ -26,9 +26,9 @@ function createSquares() {
 createSquares()
 
 function changeGreen(target) {
-  target.classList.add('green')
+  target.style = 'background-color: ' + brushColor   
 }
 
-main.addEventListener('click', () => {
+main.addEventListener('mouseover', () => {
   changeGreen(event.target)
 })
