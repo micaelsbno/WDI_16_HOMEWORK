@@ -1,0 +1,29 @@
+
+<h1>TOP 10 FRAMEWORKS</h1>
+<h4>of the week</h4>
+
+<a href="/frameworks/new"> Add new Framework</a>
+
+<ol>
+<% @frameworks.sort_by { |framework| framework.votes.count }.reverse.each do |framework| %>
+ 
+    <img src="<%=framework.image_url%>" alt="">
+    <li><a href=""> <%= framework.name %> – <%= framework.votes.count %> votes</a></li>
+  <div class="buttons">
+    <form action="/votes/new" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="fw_id" value="<%= framework.id %>">
+      <button>Vote up</button>
+    </form>
+    <form action="/frameworks/<%= framework.id %>/edit/">
+      <button>Edit</button>
+    </form>
+    <form action="/frameworks/<%= framework.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <button>Delete</button>
+    </form>
+  </div>
+<% end %>  
+</ol>
+

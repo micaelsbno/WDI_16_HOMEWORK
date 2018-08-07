@@ -1,0 +1,9 @@
+Edit <%= @framework.name %>
+<form action="/frameworks/<%= @framework.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <input type="text" name="name" value="<%= @framework.name %>">
+  <input type="text" name="image_url" placeholder="Image Url" value="<%= @framework.image_url %>">
+  <input type="text" name="description" placeholder="Description" value="<%= @framework.description %>">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <button>Edit</button>  
+</form>

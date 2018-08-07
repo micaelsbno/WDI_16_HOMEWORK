@@ -2,6 +2,7 @@
 brushColor = ''
 function setColor(){
   brushColor = document.querySelector('.brush').value
+  document.querySelector('.color').style = 'background-color: ' + brushColor
   return brushColor
 }
 
