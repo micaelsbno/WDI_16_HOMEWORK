@@ -1,0 +1,16 @@
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+div {
+  height: 40%;
+}
+
+h1 {
+  font-family:  sans-serif;
+  text-align: center;
+  color: white;
+}
